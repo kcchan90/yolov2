@@ -1,4 +1,8 @@
-1.mp4: https://www.shutterstock.com/ja/video/clip-28374025-zombies-walking-through-abandoned-village-hd
+1.mp4:  https://www.shutterstock.com/ja/video/clip-28374025-zombies-walking-through-abandoned-village-hd
 
+2.avi:  http://www.robots.ox.ac.uk/~lav/Research/Projects/2009bbenfold_headpose/project.html (resized)
 
-2.avi:http://www.robots.ox.ac.uk/~lav/Research/Projects/2009bbenfold_headpose/project.html (resized)
+test1.jpg:  https://www.nytimes.com/2018/12/04/style/bleecker-street-storefronts.html?rref=collection%2Fsectioncollection%2Fstyle&action=click&contentCollection=style&region=stream&module=stream_unit&version=latest&contentPlacement=2&pgtype=sectionfront
+
+test2.jpg:  Extract from 2.avi
+
