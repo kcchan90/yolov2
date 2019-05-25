@@ -1,5 +1,15 @@
 For YOLOv2 testing
 
+Required Packages:
+tensorflow==1.3.0
+keras==2.1.2
+cv2==4.1.0
+
+Remarks: latest version of keras may have bugs for keras.layers.advanced_activations.LeakyReLU
+Link:https://github.com/keras-team/keras/issues/9349
+
+
+
 How to Use:
 1. Download weights and cfg from here to model/ (only support yolov2-voc and yolov2-tiny-voc)
 
