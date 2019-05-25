@@ -123,7 +123,7 @@ def detect_one_imgage(img_name,model,anchors,class_names,in_path = 'input/',out_
     img = cv2.resize(img,(img_w,img_h))
     #plt.imshow(img) ##for debug
     img_name0 = img_name.split('.')[-2]
-    cv2.imwrite(out_path+img_name0+'_edit.jpg',img)
+    cv2.imwrite(out_path+img_name0+'_output.jpg',img)
     
     return None
     
