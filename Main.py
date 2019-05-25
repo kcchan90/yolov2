@@ -7,16 +7,16 @@ import matplotlib.pyplot as plt
 
 
 ##fake function (just for testing)
-def get_human0(img,frame_no):
+def get_random_boxes():
     no_rect = np.random.randint(1,4)
     boxes = [()]*no_rect
     for i in range(no_rect):
-        list_rect[i] = [np.random.randint(0,416,4)]
+        boxes[i] = [np.random.randint(0,416,4)]
     return boxes,['person']*len(boxes),[1]*len(boxes)
 
     
 ###main function
-def main(video_name,select_obj,model,anchors,class_names,in_path = 'Input/',out_path='Output/',confid_th = 0.5,overlap_th=.5):
+def main(video_name,select_obj,model,anchors,class_names,in_path = 'Input/',out_path='Output/',confid_th = 0.4,overlap_th=0.5):
     if type(select_obj)==str:
         select_obj=[select_obj]
     
@@ -49,6 +49,9 @@ def main(video_name,select_obj,model,anchors,class_names,in_path = 'Input/',out_
             model_out = model.predict(frame2[None])
             ##Apply model
             boxes, labels, confid_values = read_model_output(model_out[0],anchors,class_names,confid_th=confid_th)
+            
+            ##For debug only
+            #boxes, labels, confid_values = get_random_boxes()
             ##Select only the requested object(s)
             text_labels = np.array(class_names)[labels]
             filter = np.isin(text_labels,select_obj)
@@ -127,6 +130,10 @@ if __name__ == '__main__':
     ##Checking
     if (model_output_size != len(anchors)*(len(class_names)+5)) or (model_input_shape != (416,416)):
         raise ValueError('Input Shape not match!!!Check Config or Class file')
-        
-    main(video_name,select_obj,model,anchors,class_names)
+    
+    if model_name =='yolo2-voc':
+        ##yolov2-voc took too long time
+        main(video_name,select_obj,model,anchors,class_names,confid_th = .7)
+    else:
+        main(video_name,select_obj,model,anchors,class_names,confid_th = .4)
     
