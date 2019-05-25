@@ -28,7 +28,7 @@ def main(video_name,select_obj,model,anchors,class_names,in_path = 'Input/',out_
     ##output config
     fps = video.get(cv2.CAP_PROP_FPS)
     fourcc = cv2.VideoWriter_fourcc(*'MJPG') ##mp4 format
-    out_video = cv2.VideoWriter(out_path+video_name0+'_edited.mp4',fourcc, fps, (416,416))
+    out_video = cv2.VideoWriter(out_path+video_name0+'_output.mp4',fourcc, fps, (416,416))
     out_df = pd.DataFrame(columns=['Frame','Left','Top','Right','Bottom','Object_class'])
     
     ##Config for checking
