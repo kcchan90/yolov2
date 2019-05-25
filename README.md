@@ -2,10 +2,10 @@
 
 For YOLOv2 testing
 
-- Download weights and cfg from https://pjreddie.com/darknet/yolov2/ (only support yolov2-voc and yolov2-tiny-voc)
+- Download weights and cfg from [here](https://pjreddie.com/darknet/yolov2/) to model/ (only support yolov2-voc and yolov2-tiny-voc)
 
 
-- Convert darknet weights and cfg to keras format by
+- Convert darknet weights and cfg to keras format
 ```bash
 python convert_model yolov2-voc
 ```
