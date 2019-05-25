@@ -1,4 +1,4 @@
-# yolov2
+# YOLOV2
 
 For YOLOv2 testing
 
