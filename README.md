@@ -14,7 +14,7 @@ python convert_model yolov2-voc
 ```bash
 python detection  yolov2-voc test1.jpg
 ```
-- Detect Object in a video located at input/
+- Detect Object in a video located at input/ (edit input/select_obj.txt to detect more types of objects)
 ```bash
 python Main yolov2-voc 1.mp4
 ```
