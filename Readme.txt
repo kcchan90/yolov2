@@ -18,6 +18,10 @@ e.g.
 python Main yolov2-voc 1.mp4
 python Main yolov2-tiny-voc 2.avi
 
+4. ALL output files (image/video/csv) are stored in output/
+
+
+
 Files description:
 - convert_model.py:
     Convert darknet cfg and weights files to readable file for python keras.
