@@ -164,7 +164,7 @@ if __name__ == '__main__':
     if (model_output_size != len(anchors)*(len(class_names)+5)) or (model_input_shape != (416,416)):
         raise ValueError('Input Shape not match!!!Check Config or Class file')
 
-    detect_one_imgage(img_name,model,anchors,class_names)
+    detect_one_imgage(img_name,model,anchors,class_names,confid_th = 0.4)
 
 
      
