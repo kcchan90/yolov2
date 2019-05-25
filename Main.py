@@ -11,12 +11,12 @@ def get_random_boxes():
     no_rect = np.random.randint(1,4)
     boxes = [()]*no_rect
     for i in range(no_rect):
-        boxes[i] = [np.random.randint(0,416,4)]
-    return boxes,['person']*len(boxes),[1]*len(boxes)
+        boxes[i] = np.random.randint(0,416,4)
+    return np.array(boxes),np.array([14]*len(boxes)),np.array([1]*len(boxes))
 
     
 ###main function
-def main(video_name,select_obj,model,anchors,class_names,in_path = 'Input/',out_path='Output/',confid_th = 0.4,overlap_th=0.5):
+def main(video_name,select_obj,model,anchors,class_names,model_name,in_path = 'Input/',out_path='Output/',confid_th = 0.4,overlap_th=0.5):
     if type(select_obj)==str:
         select_obj=[select_obj]
     
@@ -28,7 +28,7 @@ def main(video_name,select_obj,model,anchors,class_names,in_path = 'Input/',out_
     ##output config
     fps = video.get(cv2.CAP_PROP_FPS)
     fourcc = cv2.VideoWriter_fourcc(*'MJPG') ##mp4 format
-    out_video = cv2.VideoWriter(out_path+video_name0+'_output.mp4',fourcc, fps, (416,416))
+    out_video = cv2.VideoWriter(out_path+video_name0+'_'+model_name+'.mp4',fourcc, fps, (416,416))
     out_df = pd.DataFrame(columns=['Frame','Left','Top','Right','Bottom','Object_class'])
     
     ##Config for checking
@@ -84,7 +84,7 @@ def main(video_name,select_obj,model,anchors,class_names,in_path = 'Input/',out_
         else:
             break
 
-    out_df[['Frame','Left','Top','Right','Bottom','Object_class']].to_csv(out_path+video_name0+'_DF.csv',index=False)
+    out_df[['Frame','Left','Top','Right','Bottom','Object_class']].to_csv(out_path+video_name0+model_name+'_DF.csv',index=False)
         
     out_video.release()
     video.release()
@@ -133,7 +133,7 @@ if __name__ == '__main__':
     
     if model_name =='yolo2-voc':
         ##yolov2-voc took too long time
-        main(video_name,select_obj,model,anchors,class_names,confid_th = .7)
+        main(video_name,select_obj,model,anchors,class_names,model_name,confid_th = .7)
     else:
-        main(video_name,select_obj,model,anchors,class_names,confid_th = .4)
+        main(video_name,select_obj,model,anchors,class_names,model_name,confid_th = .4)
     
