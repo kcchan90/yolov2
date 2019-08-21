@@ -199,7 +199,7 @@ def build_yolo(model_name):
 
 if __name__ =='__main__':       
     if len(sys.argv)<2:
-        raise ValueError('Please input model name: yolov2-voc or yolov2-tiny-voc'')
+        raise ValueError('Please input model name: yolov2-voc or yolov2-tiny-voc')
     else:
         #model_name = 'yolov2-voc'
         #model_name = 'yolov2-tiny-voc'
